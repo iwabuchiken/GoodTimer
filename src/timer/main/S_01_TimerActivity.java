@@ -1,5 +1,7 @@
 package timer.main;
 
+import java.text.SimpleDateFormat;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -31,6 +33,9 @@ public class S_01_TimerActivity extends Activity {
 
 	// Time
 	static int timeLeft = 0;
+
+	// TextView tv
+	static TextView tv;
 	
     /** Called when the activity is first created. */
     @Override
@@ -79,7 +84,7 @@ public class S_01_TimerActivity extends Activity {
 		 * 4. TextView
 			----------------------------*/
 		//
-        TextView tv = (TextView) findViewById(R.id.textView1);
+        tv = (TextView) findViewById(R.id.textView1);
         
         /*----------------------------
 		 * 5. Set listeners
@@ -102,7 +107,7 @@ public class S_01_TimerActivity extends Activity {
 				/*----------------------------
 				 * Steps
 				 * 1. Set time left
-				 * 2. // From user?
+				 * 2. From user?
 				 * 3. Enable buttons
 					----------------------------*/
 
@@ -120,10 +125,10 @@ public class S_01_TimerActivity extends Activity {
 				/*----------------------------
 				 * 2. // From user?
 					----------------------------*/
-//				// From user?
-//				if (fromUser) {
-//					showTime(progress * 60);
-//				}//if (fromUser)
+				// From user?
+				if (fromUser) {
+					showTime(progress * 60);
+				}//if (fromUser)
 				
 				/*----------------------------
 				 * 3. Enable buttons
@@ -155,6 +160,21 @@ public class S_01_TimerActivity extends Activity {
 		
 		
 	}//private void setListeners()
+
+	static void showTime(int timeSeconds) {
+		// Format
+		SimpleDateFormat form = new SimpleDateFormat("mm:ss");
+		
+		// Text view
+		tv.setText(form.format(timeLeft * 1000));
+		
+		// Log
+		Log.d("S_01_TimerActivity.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", "timeLeft => " + timeLeft + "/" + "timeLeft * 1000 => " + timeLeft * 1000);
+		
+		
+	}//static void showTime(int timeSeconds)
 
 	private BitmapDrawable drawScale() {
 		/*----------------------------
@@ -207,21 +227,27 @@ public class S_01_TimerActivity extends Activity {
 //				paint.setColor(Color.WHITE);
 				paint.setColor(Color.YELLOW);
 				
+				path.moveTo(i * 16, 0);
+				path.quadTo(i * 16, 0, i * 16, 50);
+				
 			} else {//if (i == 5 || i == 10 || i == 15)
 				// Set color
 				paint.setColor(Color.GRAY);
-				
+	
+				path.moveTo(i * 16, 0);
+				path.quadTo(i * 16, 0, i * 16, 15);
+
 			}//if (i == 5 || i == 10 || i == 15)
 			
 			// Set stating point
 //			path.moveTo(i * 16, 5);
-			path.moveTo(i * 16, 0);
+//			path.moveTo(i * 16, 0);
 			
 			// Set quadratic
 //			path.quadTo(i * 16, 5, i * 16, 15);
 //			path.quadTo(i * 16, 0, i * 16, 15);
 //			path.quadTo(i * 16, 0, i * 16, 30);
-			path.quadTo(i * 16, 0, i * 16, 50);
+//			path.quadTo(i * 16, 0, i * 16, 50);
 			
 			// Draw path on canvas
 			canvas.drawPath(path, paint);
