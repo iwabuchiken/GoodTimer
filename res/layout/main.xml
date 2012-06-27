@@ -40,17 +40,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1" >
-
-        <Button
-            android:id="@+id/button_progress_forward"
-            
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            
-            android:background="@drawable/button_backward"
-            
-            />
+        
+        android:orientation="horizontal"
+        
+        android:layout_gravity="center_horizontal"
+        
+        
+        >
 
         <Button
             android:id="@+id/button_progress_backward"
@@ -58,7 +54,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             
-            android:background="@drawable/button_forward"
+            android:text="@string/button_progress_backward"
+            
+            android:textSize="25dp"
+            
+            android:layout_weight="1"
+            
+            />
+
+        <Button
+            android:id="@+id/button_progress_forward"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            
+            android:text="@string/button_progress_forward"
+            
+            android:textSize="25dp"
+            
+            android:layout_weight="1"
             
             />
 

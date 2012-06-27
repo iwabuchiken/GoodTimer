@@ -31,6 +31,7 @@ public class S_01_TimerActivity extends Activity {
 	// Buttons
 	static Button btnStart, btnStop;
 
+	static Button btnBack, btnForward;
 	// Time
 	static int timeLeft = 0;
 
@@ -44,8 +45,9 @@ public class S_01_TimerActivity extends Activity {
 		 * Steps
 		 * 1. Set up
 		 * 2. SeekBar
-		 * 3. Buttons
+		 * 3. Buttons => start, stop
 		 * 4. TextView
+		 * 4-2. Buttons => increase, decrease
 		 * 
 		 * 5. Set listeners
 			----------------------------*/
@@ -87,6 +89,34 @@ public class S_01_TimerActivity extends Activity {
         tv = (TextView) findViewById(R.id.textView1);
         
         /*----------------------------
+		 * 4-2. Buttons => increase, decrease
+			----------------------------*/
+		// Backward
+        btnBack = (Button) findViewById(R.id.button_progress_backward);
+        
+        //
+        if (timeLeft < 1) {
+			btnBack.setEnabled(false);
+		} else {//if (timeLeft < 1)
+			btnBack.setEnabled(true);
+		}//if (timeLeft < 1)
+		
+        
+        // Forward
+        btnForward = (Button) findViewById(R.id.button_progress_forward);
+        
+        //
+        if (timeLeft < 900) {
+        	//
+			btnForward.setEnabled(true);
+			
+		} else {//if (timeLeft < 1)
+			//
+			btnForward.setEnabled(false);
+			
+		}//if (timeLeft < 1)
+        
+        /*----------------------------
 		 * 5. Set listeners
 			----------------------------*/
 		setListeners();
@@ -97,8 +127,11 @@ public class S_01_TimerActivity extends Activity {
 		/*----------------------------
 		 * Steps
 		 * 1. SeekBar
+		 * 2. Buttons => Increase, decrease
 			----------------------------*/
-		//
+		/*----------------------------
+		 * 1. SeekBar
+			----------------------------*/
 		sb.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
 
 			@Override
@@ -108,7 +141,8 @@ public class S_01_TimerActivity extends Activity {
 				 * Steps
 				 * 1. Set time left
 				 * 2. From user?
-				 * 3. Enable buttons
+				 * 3. Enable buttons => start, stop
+				 * 4. Enable buttons => increase, decrease
 					----------------------------*/
 
 				/*----------------------------
@@ -145,6 +179,28 @@ public class S_01_TimerActivity extends Activity {
 					btnStop.setEnabled(false);
 				}//if (progress == 0)
 				
+				/*----------------------------
+				 * 4. Enable buttons => increase, decrease
+					----------------------------*/
+				// Backward
+		        if (timeLeft < 1) {
+					btnBack.setEnabled(false);
+				} else {//if (timeLeft < 1)
+					btnBack.setEnabled(true);
+				}//if (timeLeft < 1)
+
+		        //
+		        if (timeLeft < 900) {
+		        	//
+					btnForward.setEnabled(true);
+					
+				} else {//if (timeLeft < 1)
+					//
+					btnForward.setEnabled(false);
+					
+				}//if (timeLeft < 1)
+		        
+				
 			}//public void onProgressChanged()
 
 			@Override
@@ -157,6 +213,12 @@ public class S_01_TimerActivity extends Activity {
 				// TODO 自動生成されたメソッド・スタブ
 				
 			}});
+		
+		/*----------------------------
+		 * 2. Buttons => Increase, decrease
+			----------------------------*/
+		// Decrease
+		
 		
 		
 	}//private void setListeners()

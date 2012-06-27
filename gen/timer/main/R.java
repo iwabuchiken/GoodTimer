@@ -24,8 +24,8 @@ public final class R {
         public static final int buttonSettings=0x7f050003;
         public static final int buttonStart=0x7f050007;
         public static final int buttonStop=0x7f050008;
-        public static final int button_progress_backward=0x7f050005;
-        public static final int button_progress_forward=0x7f050004;
+        public static final int button_progress_backward=0x7f050004;
+        public static final int button_progress_forward=0x7f050005;
         public static final int linearLayout1=0x7f050000;
         public static final int linearLayout2=0x7f050006;
         public static final int seekBar1=0x7f050002;
@@ -37,6 +37,8 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f040001;
+        public static final int button_progress_backward=0x7f040005;
+        public static final int button_progress_forward=0x7f040006;
         public static final int hello=0x7f040000;
         public static final int label_settings=0x7f040004;
         public static final int label_start=0x7f040002;
