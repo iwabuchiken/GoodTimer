@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, S_01_TimerActivity!</string>
+    <string name="app_name">S_01_Timer</string>
+
+    <string name="label_start">スタート</string>
+    <string name="label_stop">ストップ</string>
+    <string name="label_settings">アラーム設定</string>
+    
+    
+</resources>
