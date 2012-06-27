@@ -10,34 +10,151 @@ import android.graphics.Path;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.TextView;
 
 public class S_01_TimerActivity extends Activity {
 	/******************************************************************* 
 	 * Class members
 	 *******************************************************************/
 	//
-	Context mContext;
+	static Context mContext;
 	
 	//
-	SeekBar sb;
+	static SeekBar sb;
+
+	// Buttons
+	static Button btnStart, btnStop;
+
+	// Time
+	static int timeLeft = 0;
 	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
+    	/*----------------------------
+		 * Steps
+		 * 1. Set up
+		 * 2. SeekBar
+		 * 3. Buttons
+		 * 4. TextView
+		 * 
+		 * 5. Set listeners
+			----------------------------*/
+		/*----------------------------
+		 * 1. Set up
+			----------------------------*/
+		// Super
         super.onCreate(savedInstanceState);
+        
+        // Set content
         setContentView(R.layout.main);
         
-        //
+        
+        // 
         mContext = this;
-    
-        //
+        
+        /*----------------------------
+		 * 2. SeekBar
+			----------------------------*/
+        // SeekBar
         sb = (SeekBar) findViewById(R.id.seekBar1);
         
+        // Background
         sb.setBackgroundDrawable(drawScale());
         
+        /*----------------------------
+		 * 3. Buttons
+			----------------------------*/
+		// Start
+        btnStart = (Button) findViewById(R.id.buttonStart);
+        
+        // Stop
+        btnStop = (Button) findViewById(R.id.buttonStop);
+        
+        /*----------------------------
+		 * 4. TextView
+			----------------------------*/
+		//
+        TextView tv = (TextView) findViewById(R.id.textView1);
+        
+        /*----------------------------
+		 * 5. Set listeners
+			----------------------------*/
+		setListeners();
         
     }//public void onCreate(Bundle savedInstanceState)
+
+	private void setListeners() {
+		/*----------------------------
+		 * Steps
+		 * 1. SeekBar
+			----------------------------*/
+		//
+		sb.setOnSeekBarChangeListener(new OnSeekBarChangeListener(){
+
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+				/*----------------------------
+				 * Steps
+				 * 1. Set time left
+				 * 2. // From user?
+				 * 3. Enable buttons
+					----------------------------*/
+
+				/*----------------------------
+				 * 1. Set time left
+					----------------------------*/
+				timeLeft = progress * 60;
+				
+				// Log
+				Log.d("S_01_TimerActivity.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", "progress => " + progress);
+				
+				/*----------------------------
+				 * 2. // From user?
+					----------------------------*/
+//				// From user?
+//				if (fromUser) {
+//					showTime(progress * 60);
+//				}//if (fromUser)
+				
+				/*----------------------------
+				 * 3. Enable buttons
+					----------------------------*/
+				// Start
+				if (fromUser && (progress > 0)) {
+					btnStart.setEnabled(true);
+				} else {//if (fromUser && (progress > 0))
+					btnStart.setEnabled(false);
+				}//if (fromUser && (progress > 0))
+				
+				// Stop
+				if (progress == 0) {
+					btnStop.setEnabled(false);
+				}//if (progress == 0)
+				
+			}//public void onProgressChanged()
+
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+				
+			}
+
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
+				// TODO 自動生成されたメソッド・スタブ
+				
+			}});
+		
+		
+	}//private void setListeners()
 
 	private BitmapDrawable drawScale() {
 		/*----------------------------
