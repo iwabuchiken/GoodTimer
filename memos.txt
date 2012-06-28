@@ -1,0 +1,4 @@
+copy ..\ImageFileManager6\.gitignore .
+
+cd C:\WORKS\WORKSPACES_ANDROID\S_01_Timer
+gitk
