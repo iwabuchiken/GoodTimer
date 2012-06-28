@@ -11,5 +11,6 @@
     <string name="button_progress_backward">減らす</string>
     <string name="button_progress_forward">増やす</string>
     
+    <string name="swipe_view">＜減らす　増やす＞</string>
     
 </resources>

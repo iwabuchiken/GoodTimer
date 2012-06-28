@@ -1,5 +1,7 @@
 package timer.main;
 
+import helper.main.BasicGestureDetector;
+
 import java.text.SimpleDateFormat;
 
 import android.app.Activity;
@@ -13,8 +15,11 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -39,6 +44,9 @@ public class S_01_TimerActivity extends Activity {
 
 	// TextView tv
 	static TextView tv;
+
+	// 
+	static GestureDetector gestureDetector;
 	
     /** Called when the activity is first created. */
     @Override
@@ -50,6 +58,7 @@ public class S_01_TimerActivity extends Activity {
 		 * 3. Buttons => start, stop
 		 * 4. TextView
 		 * 4-2. Buttons => increase, decrease
+		 * 4-3. GestureDetector
 		 * 
 		 * 5. Set listeners
 			----------------------------*/
@@ -119,6 +128,13 @@ public class S_01_TimerActivity extends Activity {
 		}//if (timeLeft < 1)
         
         /*----------------------------
+		 * 4-3. GestureDetector
+			----------------------------*/
+		//
+//        gestureDetector = new GestureDetector(new BasicGestureDetector(this));
+        gestureDetector = new GestureDetector(this, new BasicGestureDetector(this));
+        
+        /*----------------------------
 		 * 5. Set listeners
 			----------------------------*/
 		setListeners();
@@ -131,6 +147,7 @@ public class S_01_TimerActivity extends Activity {
 		 * 1. SeekBar
 		 * 2. Buttons => Decrease
 		 * 3. Buttons => Increase
+		 * 4. Swipe text view
 			----------------------------*/
 		/*----------------------------
 		 * 1. SeekBar
@@ -268,7 +285,23 @@ public class S_01_TimerActivity extends Activity {
 			}//public void onClick(View v)
 		});
 		
+		/*----------------------------
+		 * 4. Swipe text view
+			----------------------------*/
+		//
+		TextView tv_swipe = (TextView) findViewById(R.id.swipe_view);
 		
+		//
+		tv_swipe.setOnTouchListener(new OnTouchListener(){
+
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				//
+				return gestureDetector.onTouchEvent(event);
+				
+//				return false;
+			}//public boolean onTouch(View v, MotionEvent event)
+		});
 		
 	}//private void setListeners()
 
