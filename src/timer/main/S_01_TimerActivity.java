@@ -1,11 +1,13 @@
 package timer.main;
 
 import helper.main.BasicGestureDetector;
+import helper.main.TimerService;
 
 import java.text.SimpleDateFormat;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -127,12 +129,12 @@ public class S_01_TimerActivity extends Activity {
 			
 		}//if (timeLeft < 1)
         
-        /*----------------------------
-		 * 4-3. GestureDetector
-			----------------------------*/
-		//
-//        gestureDetector = new GestureDetector(new BasicGestureDetector(this));
-        gestureDetector = new GestureDetector(this, new BasicGestureDetector(this));
+//        /*----------------------------
+//		 * 4-3. GestureDetector
+//			----------------------------*/
+//		//
+////        gestureDetector = new GestureDetector(new BasicGestureDetector(this));
+//        gestureDetector = new GestureDetector(this, new BasicGestureDetector(this));
         
         /*----------------------------
 		 * 5. Set listeners
@@ -148,6 +150,9 @@ public class S_01_TimerActivity extends Activity {
 		 * 2. Buttons => Decrease
 		 * 3. Buttons => Increase
 		 * 4. Swipe text view
+		 * 
+		 * 5. Buttons => Start
+		 * 6. Buttons => Stop
 			----------------------------*/
 		/*----------------------------
 		 * 1. SeekBar
@@ -205,7 +210,8 @@ public class S_01_TimerActivity extends Activity {
 				 * 3. Enable buttons
 					----------------------------*/
 				// Start
-				if (fromUser && (progress > 0)) {
+//				if (fromUser && (progress > 0)) {
+				if (progress > 0) {
 					btnStart.setEnabled(true);
 				} else {//if (fromUser && (progress > 0))
 					btnStart.setEnabled(false);
@@ -255,7 +261,7 @@ public class S_01_TimerActivity extends Activity {
 		 * 2. Buttons => Decrease
 			----------------------------*/
 		// Decrease
-		Button btnBack = (Button) findViewById(R.id.button_progress_backward);
+		btnBack = (Button) findViewById(R.id.button_progress_backward);
 		
 		//
 		btnBack.setOnClickListener(new OnClickListener(){
@@ -272,7 +278,7 @@ public class S_01_TimerActivity extends Activity {
 		 * 3. Buttons => Increase
 			----------------------------*/
 		// Increase
-		Button btnForward = (Button) findViewById(R.id.button_progress_forward);
+		btnForward = (Button) findViewById(R.id.button_progress_forward);
 		
 		//
 		btnForward.setOnClickListener(new OnClickListener(){
@@ -285,24 +291,102 @@ public class S_01_TimerActivity extends Activity {
 			}//public void onClick(View v)
 		});
 		
+//		/*----------------------------
+//		 * 4. Swipe text view
+//			----------------------------*/
+//		//
+//		TextView tv_swipe = (TextView) findViewById(R.id.swipe_view);
+//		
+//		//
+//		tv_swipe.setOnTouchListener(new OnTouchListener(){
+//
+//			@Override
+//			public boolean onTouch(View v, MotionEvent event) {
+//				//
+//				return gestureDetector.onTouchEvent(event);
+//				
+////				return false;
+//			}//public boolean onTouch(View v, MotionEvent event)
+//		});
+		
 		/*----------------------------
-		 * 4. Swipe text view
+		 * 5. Buttons => Start
 			----------------------------*/
 		//
-		TextView tv_swipe = (TextView) findViewById(R.id.swipe_view);
+		btnStart = (Button) findViewById(R.id.buttonStart);
 		
 		//
-		tv_swipe.setOnTouchListener(new OnTouchListener(){
+		btnStart.setOnClickListener(new OnClickListener(){
 
 			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-				//
-				return gestureDetector.onTouchEvent(event);
+			public void onClick(View v) {
+				/*----------------------------
+				 * Steps
+				 * 1. Start service
+				 * 2. Button status
+					----------------------------*/
 				
-//				return false;
-			}//public boolean onTouch(View v, MotionEvent event)
+				// TODO 自動生成されたメソッド・スタブ
+				//
+				Intent i = new Intent(mContext, TimerService.class);
+
+				//
+				i.putExtra("counter", timeLeft);
+				
+				//
+				startService(i);
+				
+				/*----------------------------
+				 * 2. Button status
+					----------------------------*/
+				//
+				btnStart.setEnabled(false);
+				btnStop.setEnabled(true);
+				sb.setEnabled(false);
+				
+//				btnBack.setEnabled(false);
+//				btnForward.setEnabled(false);
+				
+			}//public void onClick(View v)
 		});
+
+		/*----------------------------
+		 * 6. Buttons => Stop
+			----------------------------*/
+		//
+		btnStop = (Button) findViewById(R.id.buttonStop);
 		
+		//
+		btnStop.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				/*----------------------------
+				 * Steps
+				 * 1. Start service
+				 * 2. Button status
+					----------------------------*/
+				
+				// TODO 自動生成されたメソッド・スタブ
+				//
+				Intent i = new Intent(mContext, TimerService.class);
+				
+				//
+				mContext.stopService(i);
+				
+				/*----------------------------
+				 * 2. Button status
+					----------------------------*/
+				//
+				btnStart.setEnabled(true);
+				btnStop.setEnabled(false);
+				sb.setEnabled(true);
+				
+//				btnBack.setEnabled(true);
+//				btnForward.setEnabled(true);
+			}//public void onClick(View v)
+		});
+
 	}//private void setListeners()
 
 	static void showTime(int timeSeconds) {
@@ -310,7 +394,8 @@ public class S_01_TimerActivity extends Activity {
 		SimpleDateFormat form = new SimpleDateFormat("mm:ss");
 		
 		// Text view
-		tv.setText(form.format(timeLeft * 1000));
+//		tv.setText(form.format(timeLeft * 1000));
+		tv.setText(form.format(timeSeconds * 1000));
 		
 		// Log
 		Log.d("S_01_TimerActivity.java" + "["
@@ -409,6 +494,51 @@ public class S_01_TimerActivity extends Activity {
 		return bd;
 		
 	}//private BitmapDrawable drawScale()
-    
+
+	public static  void countdown(int counter) {
+			/*************************
+			 * Steps
+			 * 1. 
+			 *************************/
+			// Log
+			Log.d("S_01_TimerActivity.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "counter => " + counter);
+			
+		
+			//
+			showTime(counter);
+			
+			//
+			timeLeft = counter;
+			
+			// Set progress
+			if (counter % 60 == 0) {
+				//
+				sb.setProgress(counter / 60);
+				
+			} else {//if (counter % 60 == 0)
+				//
+				sb.setProgress(counter / 60 + 1);
+				
+			}//if (counter % 60 == 0)
+			
+			//
+			
+			
+			
+		}//  void countdown(int counter)
+
+	@Override
+	protected void onResume() {
+		// TODO 自動生成されたメソッド・スタブ
+		super.onResume();
+		
+		// Log
+		Log.d("S_01_TimerActivity.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", "onResume => Started");
+		
+	}//protected void onResume()
     
 }//public class S_01_TimerActivity extends Activity
