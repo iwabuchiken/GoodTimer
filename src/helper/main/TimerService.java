@@ -3,6 +3,7 @@ package helper.main;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import timer.main.AlarmDialog;
 import timer.main.S_01_TimerActivity;
 
 import android.app.Service;
@@ -277,9 +278,21 @@ public class TimerService extends Service {
 			 * Steps
 			 * 1. 
 			 *************************/
-			//
-			// debug
-			Toast.makeText(TimerService.this, "时到了!", Toast.LENGTH_SHORT).show();
+		  // Stop the service
+		  Intent i = new Intent(mContext, TimerService.class);
+		  
+		  mContext.stopService(i);
+		  
+		  // New intent
+		  i = new Intent(mContext, AlarmDialog.class);
+		  
+		  i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		  
+		  // Start
+		  mContext.startActivity(i);
+		  
+//			// debug
+//			Toast.makeText(TimerService.this, "时到了!", Toast.LENGTH_SHORT).show();
 			
 		}//  void showAlarm( )
 }//public class TimerService extends Service

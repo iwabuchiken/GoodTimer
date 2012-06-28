@@ -8,6 +8,9 @@
     <string name="label_stop">ストップ</string>
     <string name="label_settings">アラーム設定</string>
     
+    <string name="message_timeup">時間です。</string>
+    <string name="label_ok">OK</string>
+    
     <string name="button_progress_backward">減らす</string>
     <string name="button_progress_forward">増やす</string>
     
