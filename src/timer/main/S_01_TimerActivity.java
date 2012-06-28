@@ -129,7 +129,8 @@ public class S_01_TimerActivity extends Activity {
 		/*----------------------------
 		 * Steps
 		 * 1. SeekBar
-		 * 2. Buttons => Increase, decrease
+		 * 2. Buttons => Decrease
+		 * 3. Buttons => Increase
 			----------------------------*/
 		/*----------------------------
 		 * 1. SeekBar
@@ -234,7 +235,7 @@ public class S_01_TimerActivity extends Activity {
 			}});
 		
 		/*----------------------------
-		 * 2. Buttons => Increase, decrease
+		 * 2. Buttons => Decrease
 			----------------------------*/
 		// Decrease
 		Button btnBack = (Button) findViewById(R.id.button_progress_backward);
@@ -246,6 +247,23 @@ public class S_01_TimerActivity extends Activity {
 			public void onClick(View v) {
 				//
 				sb.setProgress(sb.getProgress() - 1);
+				
+			}//public void onClick(View v)
+		});
+
+		/*----------------------------
+		 * 3. Buttons => Increase
+			----------------------------*/
+		// Increase
+		Button btnForward = (Button) findViewById(R.id.button_progress_forward);
+		
+		//
+		btnForward.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				//
+				sb.setProgress(sb.getProgress() + 1);
 				
 			}//public void onClick(View v)
 		});
