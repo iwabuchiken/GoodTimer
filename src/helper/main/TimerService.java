@@ -65,19 +65,45 @@ public class TimerService extends Service {
 		
 		//
 		if (counter != 0) {
+			// Log
+			Log.d("TimerService.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Getting PowerManager ...");
+			
+			
 			//
 			PowerManager pm = 
 						(PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
 			
+			// Log
+			Log.d("TimerService.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "PowerManager obtained");
+
+			// Log
+			Log.d("TimerService.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Instantiating a WakeLock ...");
+
 			//
 			wl = pm.newWakeLock(
 							PowerManager.SCREEN_DIM_WAKE_LOCK + 
 								PowerManager.ON_AFTER_RELEASE, 
 							"My Tag");
 			
+			// Log
+			Log.d("TimerService.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Acquiring a WakeLock ...");
+			
 			//
 			wl.acquire();
 			
+			// Log
+			Log.d("TimerService.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "WakeLock obtained");
+
 			//
 			startTimer();
 			
@@ -145,11 +171,11 @@ public class TimerService extends Service {
 
 						@Override
 						public void run() {
-							// Log
-							Log.d("TimerService.java"
-									+ "["
-									+ Thread.currentThread().getStackTrace()[2]
-											.getLineNumber() + "]", "Runnable => Starts");
+//							// Log
+//							Log.d("TimerService.java"
+//									+ "["
+//									+ Thread.currentThread().getStackTrace()[2]
+//											.getLineNumber() + "]", "Runnable => Starts");
 							
 							// 
 							handler.post(new Runnable(){
