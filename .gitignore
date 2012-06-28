@@ -4,3 +4,5 @@
 *.ap_
 *.dex
 *.*.class
+bin/
+bin/*
