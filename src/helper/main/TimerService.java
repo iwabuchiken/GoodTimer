@@ -85,11 +85,11 @@ public class TimerService extends Service {
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", "Instantiating a WakeLock ...");
 
-//			//
-//			wl = pm.newWakeLock(
-//							PowerManager.SCREEN_DIM_WAKE_LOCK + 
-//								PowerManager.ON_AFTER_RELEASE, 
-//							"My Tag");
+			//
+			wl = pm.newWakeLock(
+							PowerManager.SCREEN_DIM_WAKE_LOCK + 
+								PowerManager.ON_AFTER_RELEASE, 
+							"My Tag");
 			
 			// Log
 			Log.d("TimerService.java" + "["
@@ -97,7 +97,7 @@ public class TimerService extends Service {
 					+ "]", "Acquiring a WakeLock ...");
 			
 			//
-//			wl.acquire();
+			wl.acquire();
 			
 			// Log
 			Log.d("TimerService.java" + "["
@@ -128,16 +128,16 @@ public class TimerService extends Service {
 		timer.cancel();
 		
 		//
-//		if (wl.isHeld()) {
-//			//
-//			wl.release();
-//			
-//			// Log
-//			Log.d("TimerService.java" + "["
-//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//					+ "]", "wl => Released");
-//			
-//		}//if (wl.isHeld())
+		if (wl.isHeld()) {
+			//
+			wl.release();
+			
+			// Log
+			Log.d("TimerService.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "wl => Released");
+			
+		}//if (wl.isHeld())
 		
 	}//public void onDestroy()
 
@@ -166,8 +166,56 @@ public class TimerService extends Service {
 			// Handler
 			final android.os.Handler handler = new android.os.Handler();
 			
+			// Log
+			Log.d("TimerService.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "Staring schedule ...");
+			
 			// Thread
-			timer.schedule(new TimerTask(){
+			timer.schedule(
+//					new TimerTask(){
+//						@Override
+//						public void run() {
+//							// Log
+//							Log.d("TimerService.java"
+//									+ "["
+//									+ Thread.currentThread()
+//											.getStackTrace()[2]
+//											.getLineNumber() + "]",
+//									"Runnable => Starts");
+//
+//							// 
+//							handler.post(new Runnable(){
+//								@Override
+//								public void run() {
+//									// 
+//									if (counter == -1) {
+//										//
+//										timer.cancel();
+//										//
+//										showAlarm();
+//									} else {//if (counter == -1)
+//										// Log
+//										Log.d("TimerService.java"
+//												+ "["
+//												+ Thread.currentThread()
+//														.getStackTrace()[2]
+//														.getLineNumber() + "]",
+//												"counter => " + counter);
+//										
+//										
+//										//
+//										S_01_TimerActivity.countdown(counter);
+//										//
+//										counter = counter - 1;
+//									}//if (counter == -1)
+//								}//public void run()
+//							});//handler.post()
+//						}//public void run()
+//					}, 
+//					0, 1000
+					
+					new TimerTask(){
 
 						@Override
 						public void run() {
@@ -188,16 +236,16 @@ public class TimerService extends Service {
 										timer.cancel();
 										
 										//
-//										if (wl.isHeld()) {
-//											//
-//											wl.release();
-//											
-//											// Log
-//											Log.d("TimerService.java" + "["
-//													+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-//													+ "]", "wl => Released");
-//											
-//										}//if (wl.isHeld())
+										if (wl.isHeld()) {
+											//
+											wl.release();
+											
+											// Log
+											Log.d("TimerService.java" + "["
+													+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+													+ "]", "wl => Released");
+											
+										}//if (wl.isHeld())
 										
 										//
 										showAlarm();
@@ -218,7 +266,8 @@ public class TimerService extends Service {
 							
 						}//public void run()
 					}, 
-					0, 1000);//timer.schedule()
+					0, 1000
+				);//timer.schedule()
 			
 			
 	}//public  void startTimer( )

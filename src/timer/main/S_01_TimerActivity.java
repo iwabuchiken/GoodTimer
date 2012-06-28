@@ -344,8 +344,8 @@ public class S_01_TimerActivity extends Activity {
 				btnStop.setEnabled(true);
 				sb.setEnabled(false);
 				
-				btnBack.setEnabled(false);
-				btnForward.setEnabled(false);
+//				btnBack.setEnabled(false);
+//				btnForward.setEnabled(false);
 				
 			}//public void onClick(View v)
 		});
@@ -382,8 +382,8 @@ public class S_01_TimerActivity extends Activity {
 				btnStop.setEnabled(false);
 				sb.setEnabled(true);
 				
-				btnBack.setEnabled(true);
-				btnForward.setEnabled(true);
+//				btnBack.setEnabled(true);
+//				btnForward.setEnabled(true);
 			}//public void onClick(View v)
 		});
 
@@ -394,7 +394,8 @@ public class S_01_TimerActivity extends Activity {
 		SimpleDateFormat form = new SimpleDateFormat("mm:ss");
 		
 		// Text view
-		tv.setText(form.format(timeLeft * 1000));
+//		tv.setText(form.format(timeLeft * 1000));
+		tv.setText(form.format(timeSeconds * 1000));
 		
 		// Log
 		Log.d("S_01_TimerActivity.java" + "["
@@ -510,6 +511,21 @@ public class S_01_TimerActivity extends Activity {
 			
 			//
 			timeLeft = counter;
+			
+			// Set progress
+			if (counter % 60 == 0) {
+				//
+				sb.setProgress(counter / 60);
+				
+			} else {//if (counter % 60 == 0)
+				//
+				sb.setProgress(counter / 60 + 1);
+				
+			}//if (counter % 60 == 0)
+			
+			//
+			
+			
 			
 		}//  void countdown(int counter)
 
