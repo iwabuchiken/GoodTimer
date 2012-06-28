@@ -16,4 +16,12 @@
     
     <string name="swipe_view">＜減らす　増やす＞</string>
     
+    <!-- Preferences -->
+    	<string name="key_ringtone">alarm</string>
+    	<string name="label_ringtone">アラーム音</string>
+    	<string name="key_vibrator">vibrator</string>
+    	<string name="label_vibrator">バイブレーター</string>
+    
+    <!-- /Preferences -->
+    
 </resources>

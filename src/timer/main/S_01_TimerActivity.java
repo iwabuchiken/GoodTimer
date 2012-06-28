@@ -153,6 +153,8 @@ public class S_01_TimerActivity extends Activity {
 		 * 
 		 * 5. Buttons => Start
 		 * 6. Buttons => Stop
+		 * 
+		 * 7. Preferences
 			----------------------------*/
 		/*----------------------------
 		 * 1. SeekBar
@@ -387,6 +389,24 @@ public class S_01_TimerActivity extends Activity {
 			}//public void onClick(View v)
 		});
 
+		/*----------------------------
+		 * 7. Preferences
+			----------------------------*/
+		//
+		((Button) findViewById(R.id.buttonSettings)).setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// 
+				Intent i = new Intent(mContext, Preferences.class);
+				
+				//
+				startActivity(i);
+				
+			}//public void onClick(View v)
+		
+		});//((Button) findViewById(R.id.buttonSettings)).setOnClickListener()
+		
 	}//private void setListeners()
 
 	static void showTime(int timeSeconds) {
