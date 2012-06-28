@@ -8,6 +8,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -82,15 +83,28 @@ public class AlarmDialog extends Activity {
 		SharedPreferences prefs;
 		
 		// Get prefs
-		prefs = this.getSharedPreferences("CountDownTimerPrefs", 0);
+//		prefs = this.getSharedPreferences("CountDownTimerPrefs", 0);
+		prefs = this.getSharedPreferences("CountdownTimerPrefs", 0);
 		
 		// Get string
 		String fn = prefs.getString("alarm", "");
+		
+		// Log
+		Log.d("AlarmDialog.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", "fn => " + fn);
+		
 		
 		// Ringtone
 		if (fn != "") {
 			//
 			rt = RingtoneManager.getRingtone(this, Uri.parse(fn));
+		
+			// Log
+			Log.d("AlarmDialog.java" + "["
+					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+					+ "]", "rt => " + rt.toString());
+			
 			
 			// Play
 			if (rt != null && !rt.isPlaying()) {
