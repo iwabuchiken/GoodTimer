@@ -13,6 +13,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -141,10 +143,22 @@ public class S_01_TimerActivity extends Activity {
 				 * Steps
 				 * 1. Set time left
 				 * 2. From user?
+				 * 2-2. Set time left (NOT from user)
 				 * 3. Enable buttons => start, stop
 				 * 4. Enable buttons => increase, decrease
 					----------------------------*/
-
+				// Log
+				Log.d("S_01_TimerActivity.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", "fromUser => " + fromUser);
+				// Log
+				Log.d("S_01_TimerActivity.java"
+						+ "["
+						+ Thread.currentThread().getStackTrace()[2]
+								.getLineNumber() + "]", "progress => " + progress);
+				
+					
 				/*----------------------------
 				 * 1. Set time left
 					----------------------------*/
@@ -163,6 +177,11 @@ public class S_01_TimerActivity extends Activity {
 				if (fromUser) {
 					showTime(progress * 60);
 				}//if (fromUser)
+
+				/*----------------------------
+				 * 2-2. Set time left (NOT from user)
+					----------------------------*/
+				showTime(progress * 60);
 				
 				/*----------------------------
 				 * 3. Enable buttons
@@ -218,6 +237,18 @@ public class S_01_TimerActivity extends Activity {
 		 * 2. Buttons => Increase, decrease
 			----------------------------*/
 		// Decrease
+		Button btnBack = (Button) findViewById(R.id.button_progress_backward);
+		
+		//
+		btnBack.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				//
+				sb.setProgress(sb.getProgress() - 1);
+				
+			}//public void onClick(View v)
+		});
 		
 		
 		
