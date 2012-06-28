@@ -85,11 +85,11 @@ public class TimerService extends Service {
 					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
 					+ "]", "Instantiating a WakeLock ...");
 
-			//
-			wl = pm.newWakeLock(
-							PowerManager.SCREEN_DIM_WAKE_LOCK + 
-								PowerManager.ON_AFTER_RELEASE, 
-							"My Tag");
+//			//
+//			wl = pm.newWakeLock(
+//							PowerManager.SCREEN_DIM_WAKE_LOCK + 
+//								PowerManager.ON_AFTER_RELEASE, 
+//							"My Tag");
 			
 			// Log
 			Log.d("TimerService.java" + "["
@@ -97,7 +97,7 @@ public class TimerService extends Service {
 					+ "]", "Acquiring a WakeLock ...");
 			
 			//
-			wl.acquire();
+//			wl.acquire();
 			
 			// Log
 			Log.d("TimerService.java" + "["
@@ -128,16 +128,16 @@ public class TimerService extends Service {
 		timer.cancel();
 		
 		//
-		if (wl.isHeld()) {
-			//
-			wl.release();
-			
-			// Log
-			Log.d("TimerService.java" + "["
-					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-					+ "]", "wl => Released");
-			
-		}//if (wl.isHeld())
+//		if (wl.isHeld()) {
+//			//
+//			wl.release();
+//			
+//			// Log
+//			Log.d("TimerService.java" + "["
+//					+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//					+ "]", "wl => Released");
+//			
+//		}//if (wl.isHeld())
 		
 	}//public void onDestroy()
 
@@ -188,16 +188,16 @@ public class TimerService extends Service {
 										timer.cancel();
 										
 										//
-										if (wl.isHeld()) {
-											//
-											wl.release();
-											
-											// Log
-											Log.d("TimerService.java" + "["
-													+ Thread.currentThread().getStackTrace()[2].getLineNumber()
-													+ "]", "wl => Released");
-											
-										}//if (wl.isHeld())
+//										if (wl.isHeld()) {
+//											//
+//											wl.release();
+//											
+//											// Log
+//											Log.d("TimerService.java" + "["
+//													+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+//													+ "]", "wl => Released");
+//											
+//										}//if (wl.isHeld())
 										
 										//
 										showAlarm();
