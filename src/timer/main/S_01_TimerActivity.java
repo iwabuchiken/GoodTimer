@@ -1,6 +1,6 @@
 package timer.main;
 
-import helper.main.BasicGestureDetector;
+import helper.main.Methods;
 import helper.main.TimerService;
 
 import java.text.SimpleDateFormat;
@@ -14,14 +14,13 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
-import android.view.MotionEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -49,6 +48,15 @@ public class S_01_TimerActivity extends Activity {
 
 	// 
 	static GestureDetector gestureDetector;
+
+	//
+	public static String alarmMessage = null;
+	
+	public enum DialogButtonTag {
+		//
+		dlg_set_message_ok, dlg_set_message_cancel
+		
+	}//public enum DialogButtonTag
 	
     /** Called when the activity is first created. */
     @Override
@@ -560,5 +568,55 @@ public class S_01_TimerActivity extends Activity {
 				+ "]", "onResume => Started");
 		
 	}//protected void onResume()
-    
+
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        
+        /*----------------------------
+		 * Items
+		 * 1. 
+			----------------------------*/
+		
+        /*----------------------------
+		 * Menu Item 1 => 
+			----------------------------*/
+        // Menu item
+		MenuItem item1=menu.add(0,0,0,
+				this.getResources().getString(R.string.main_menu_item_set_message));
+        
+        // Icon
+        item1.setIcon(android.R.drawable.ic_menu_edit);
+        
+        return true;
+	}//public boolean onCreateOptionsMenu(Menu menu)
+
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+		/*----------------------------
+		 * Steps
+		 * 1. 
+			----------------------------*/
+		
+        switch (item.getItemId()) {
+			/*----------------------------
+			 * Steps
+			 * 1. 
+			 * 9. Default
+				----------------------------*/
+        	/*----------------------------
+			 * 1. case 0	=> 
+				----------------------------*/
+            case 0:
+            	//
+            	Methods.showDialog_setMessageText(this);
+            	
+            break;//case 0
+            
+        	
+        }//switch (item.getItemId())
+        
+		return true;
+    }//public boolean onOptionsItemSelected(MenuItem item)
+
 }//public class S_01_TimerActivity extends Activity

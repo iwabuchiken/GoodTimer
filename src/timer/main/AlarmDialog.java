@@ -11,6 +11,7 @@ import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.TextView;
 
 public class AlarmDialog extends Activity {
 	/******************************************************************* 
@@ -25,8 +26,17 @@ public class AlarmDialog extends Activity {
 	//
 	Ringtone rt;
 	
+	//
+	TextView tv;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		/*----------------------------
+		 * Steps
+		 * 1. Set up
+		 * 2. Set alarm message
+			----------------------------*/
+		
 		super.onCreate(savedInstanceState);
 		
 		// Content view
@@ -34,6 +44,18 @@ public class AlarmDialog extends Activity {
 	
 		//
 		mContext = this;
+
+		/*----------------------------
+		 * 2. Set alarm message
+			----------------------------*/
+		//
+		tv = (TextView) this.findViewById(R.id.textView1);
+		
+		//
+		if (S_01_TimerActivity.alarmMessage != null) {
+			tv.setText(S_01_TimerActivity.alarmMessage);
+		}//if (S_01_TimerActivity.alarmMessage != null)
+//			tv.setText("Êó∂Èó¥Âà∞‰∫Ü!");
 		
 		// Initialize vibrator
 		vib = (Vibrator) mContext.getSystemService(mContext.VIBRATOR_SERVICE);
@@ -52,6 +74,9 @@ public class AlarmDialog extends Activity {
 				
 				// Stop vibrator
 				vib.cancel();
+				
+				//
+				S_01_TimerActivity.sb.setEnabled(true);
 				
 				// Finish
 				((Activity) mContext).finish();
@@ -73,7 +98,7 @@ public class AlarmDialog extends Activity {
 		 * 2. Prefs
 			----------------------------*/
 		
-		// TODO é©ìÆê∂ê¨Ç≥ÇÍÇΩÉÅÉ\ÉbÉhÅEÉXÉ^Éu
+		// TODO Ëá™ÂãïÁîüÊàê„Åï„Çå„Åü„É°„ÇΩ„ÉÉ„Éâ„Éª„Çπ„Çø„Éñ
 		super.onResume();
 		
 		/*----------------------------

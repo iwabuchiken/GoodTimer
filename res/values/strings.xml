@@ -24,4 +24,15 @@
     
     <!-- /Preferences -->
     
+    <!-- Options menu -->
+    	<string name="main_menu_item_set_message">メッセージ設定</string>
+    
+    <!-- /Options menu -->
+    
+    <!-- dlg_set_message.xml -->
+    	<string name="dlg_set_message_ok">OK</string>
+    	<string name="dlg_set_message_cancel">Cancel</string>
+    
+    <!-- /dlg_set_message.xml -->
+    
 </resources>
