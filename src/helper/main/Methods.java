@@ -66,5 +66,25 @@ public class Methods {
 				"Text set => " + et.getText().toString(), Toast.LENGTH_SHORT).show();
 		
 	}//public static void setMessage(actv, dlg)
+
+	public static void dlg_quickStart(Activity actv) {
+		/*----------------------------
+		 * Steps
+		 * 1. Set up
+		 * 2. Set listeners
+		 * 3. Show dialog
+			----------------------------*/
+		
+		//
+		Dialog dlg = new Dialog(actv);
+		
+		//
+//		dlg.setContentView(R.layout);
+		
+		//
+		dlg.setTitle("アラームのメッセージ");
+		
+		
+	}//public static void dlg_quickStart(Activity actv)
 	
 }//public class Methods

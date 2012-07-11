@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/menu_main_create_message" android:title="@string/main_menu_item_set_message" android:icon="@android:drawable/ic_menu_edit"></item>
+    <item android:id="@+id/menu_main_quick_start" android:title="@string/main_menu_item_quick_start" android:icon="@drawable/menu_quick_start_30x30"></item>
+    
+
+</menu>

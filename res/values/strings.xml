@@ -34,5 +34,6 @@
     	<string name="dlg_set_message_cancel">Cancel</string>
     
     <!-- /dlg_set_message.xml -->
+    	<string name="main_menu_item_quick_start">クイックスタート</string>
     
 </resources>

@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -586,24 +587,11 @@ public class S_01_TimerActivity extends Activity {
 
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        
-        /*----------------------------
-		 * Items
-		 * 1. 
-			----------------------------*/
+		// 
+		MenuInflater mi = getMenuInflater();
+		mi.inflate(R.menu.menu_main, menu);
 		
-        /*----------------------------
-		 * Menu Item 1 => 
-			----------------------------*/
-        // Menu item
-		MenuItem item1=menu.add(0,0,0,
-				this.getResources().getString(R.string.main_menu_item_set_message));
-        
-        // Icon
-        item1.setIcon(android.R.drawable.ic_menu_edit);
-        
-        return true;
+		return super.onCreateOptionsMenu(menu);
 	}//public boolean onCreateOptionsMenu(Menu menu)
 
 	@Override
@@ -622,13 +610,18 @@ public class S_01_TimerActivity extends Activity {
         	/*----------------------------
 			 * 1. case 0	=> 
 				----------------------------*/
-            case 0:
+            case R.id.menu_main_create_message:
             	//
             	Methods.showDialog_setMessageText(this);
             	
-            break;//case 0
+            	break;//case 0
             
-        	
+            case R.id.menu_main_quick_start:
+            	//
+//            	Methods.dlg_quickStart(this);
+            	
+            	break;//case 0
+            
         }//switch (item.getItemId())
         
 		return true;
