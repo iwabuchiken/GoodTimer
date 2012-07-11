@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -39,7 +40,9 @@ public class S_01_TimerActivity extends Activity {
 	// Buttons
 	static Button btnStart, btnStop;
 
-	static Button btnBack, btnForward;
+//	static Button btnBack, btnForward;
+	ImageButton btnDecrease, btnIncrease;
+	
 	// Time
 	static int timeLeft = 0;
 
@@ -95,7 +98,7 @@ public class S_01_TimerActivity extends Activity {
         sb.setBackgroundDrawable(drawScale());
         
         /*----------------------------
-		 * 3. Buttons
+		 * 3. Buttons => start, stop
 			----------------------------*/
 		// Start
         btnStart = (Button) findViewById(R.id.buttonStart);
@@ -113,27 +116,27 @@ public class S_01_TimerActivity extends Activity {
 		 * 4-2. Buttons => increase, decrease
 			----------------------------*/
 		// Backward
-        btnBack = (Button) findViewById(R.id.button_progress_backward);
+        btnDecrease = (ImageButton) findViewById(R.id.ib_progress_decrease);
         
         //
         if (timeLeft < 1) {
-			btnBack.setEnabled(false);
+			btnDecrease.setEnabled(false);
 		} else {//if (timeLeft < 1)
-			btnBack.setEnabled(true);
+			btnDecrease.setEnabled(true);
 		}//if (timeLeft < 1)
 		
         
         // Forward
-        btnForward = (Button) findViewById(R.id.button_progress_forward);
+        btnIncrease = (ImageButton) findViewById(R.id.ib_progress_increase);
         
         //
         if (timeLeft < 900) {
         	//
-			btnForward.setEnabled(true);
+			btnIncrease.setEnabled(true);
 			
 		} else {//if (timeLeft < 1)
 			//
-			btnForward.setEnabled(false);
+			btnIncrease.setEnabled(false);
 			
 		}//if (timeLeft < 1)
         
@@ -237,19 +240,19 @@ public class S_01_TimerActivity extends Activity {
 					----------------------------*/
 				// Backward
 		        if (timeLeft < 1) {
-					btnBack.setEnabled(false);
+					btnDecrease.setEnabled(false);
 				} else {//if (timeLeft < 1)
-					btnBack.setEnabled(true);
+					btnDecrease.setEnabled(true);
 				}//if (timeLeft < 1)
 
 		        //
 		        if (timeLeft < 900) {
 		        	//
-					btnForward.setEnabled(true);
+					btnIncrease.setEnabled(true);
 					
 				} else {//if (timeLeft < 1)
 					//
-					btnForward.setEnabled(false);
+					btnIncrease.setEnabled(false);
 					
 				}//if (timeLeft < 1)
 		        
@@ -271,10 +274,10 @@ public class S_01_TimerActivity extends Activity {
 		 * 2. Buttons => Decrease
 			----------------------------*/
 		// Decrease
-		btnBack = (Button) findViewById(R.id.button_progress_backward);
+		btnDecrease = (ImageButton) findViewById(R.id.ib_progress_decrease);
 		
 		//
-		btnBack.setOnClickListener(new OnClickListener(){
+		btnDecrease.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
@@ -288,10 +291,10 @@ public class S_01_TimerActivity extends Activity {
 		 * 3. Buttons => Increase
 			----------------------------*/
 		// Increase
-		btnForward = (Button) findViewById(R.id.button_progress_forward);
+		btnIncrease = (ImageButton) findViewById(R.id.ib_progress_increase);
 		
 		//
-		btnForward.setOnClickListener(new OnClickListener(){
+		btnIncrease.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
@@ -354,8 +357,8 @@ public class S_01_TimerActivity extends Activity {
 				btnStop.setEnabled(true);
 				sb.setEnabled(false);
 				
-//				btnBack.setEnabled(false);
-//				btnForward.setEnabled(false);
+//				btnDecrease.setEnabled(false);
+//				btnIncrease.setEnabled(false);
 				
 			}//public void onClick(View v)
 		});
@@ -392,8 +395,8 @@ public class S_01_TimerActivity extends Activity {
 				btnStop.setEnabled(false);
 				sb.setEnabled(true);
 				
-//				btnBack.setEnabled(true);
-//				btnForward.setEnabled(true);
+//				btnDecrease.setEnabled(true);
+//				btnIncrease.setEnabled(true);
 			}//public void onClick(View v)
 		});
 

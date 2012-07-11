@@ -27,26 +27,28 @@ public final class R {
         public static final int button_background_drawable=0x7f020000;
         public static final int button_backward=0x7f020001;
         public static final int button_forward=0x7f020002;
-        public static final int draw_02_opaque_button_2=0x7f020003;
-        public static final int draw_02_opaque_button_3=0x7f020004;
-        public static final int draw_02_opaque_button_4=0x7f020005;
-        public static final int ic_launcher=0x7f020006;
-        public static final int set_stroke_width_3=0x7f020007;
+        public static final int decrease_70x70=0x7f020003;
+        public static final int draw_02_opaque_button_2=0x7f020004;
+        public static final int draw_02_opaque_button_3=0x7f020005;
+        public static final int draw_02_opaque_button_4=0x7f020006;
+        public static final int ic_launcher=0x7f020007;
+        public static final int icon_project_good_timer_70x70=0x7f020008;
+        public static final int increase_70x70=0x7f020009;
+        public static final int set_stroke_width_3=0x7f02000a;
     }
     public static final class id {
         public static final int button1=0x7f070001;
         public static final int buttonSettings=0x7f070007;
-        public static final int buttonStart=0x7f07000c;
-        public static final int buttonStop=0x7f07000d;
-        public static final int button_progress_backward=0x7f070009;
-        public static final int button_progress_forward=0x7f07000a;
+        public static final int buttonStart=0x7f07000b;
+        public static final int buttonStop=0x7f07000c;
         public static final int dlg_set_message_cancel=0x7f070004;
         public static final int dlg_set_message_ok=0x7f070003;
         public static final int editText1=0x7f070002;
+        public static final int ib_progress_decrease=0x7f070008;
+        public static final int ib_progress_increase=0x7f070009;
         public static final int linearLayout1=0x7f070005;
-        public static final int linearLayout2=0x7f07000b;
+        public static final int linearLayout2=0x7f07000a;
         public static final int seekBar1=0x7f070006;
-        public static final int swipe_view=0x7f070008;
         public static final int textView1=0x7f070000;
     }
     public static final class layout {
