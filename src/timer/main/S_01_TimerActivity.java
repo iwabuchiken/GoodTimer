@@ -357,12 +357,18 @@ public class S_01_TimerActivity extends Activity {
 				btnStop.setEnabled(true);
 				sb.setEnabled(false);
 				
+				btnDecrease.setImageResource(R.drawable.decrease_disenabled_70x70);
+				btnIncrease.setImageResource(R.drawable.inccrease_disenabled_70x70);
+				
+				btnDecrease.setEnabled(false);
+				btnIncrease.setEnabled(false);
+				
 //				btnDecrease.setEnabled(false);
 //				btnIncrease.setEnabled(false);
 				
 			}//public void onClick(View v)
 		});
-
+		
 		/*----------------------------
 		 * 6. Buttons => Stop
 			----------------------------*/
@@ -394,7 +400,13 @@ public class S_01_TimerActivity extends Activity {
 				btnStart.setEnabled(true);
 				btnStop.setEnabled(false);
 				sb.setEnabled(true);
+
+				btnDecrease.setImageResource(R.drawable.decrease_70x70);
+				btnIncrease.setImageResource(R.drawable.increase_70x70);
 				
+				btnDecrease.setEnabled(true);
+				btnIncrease.setEnabled(true);
+
 //				btnDecrease.setEnabled(true);
 //				btnIncrease.setEnabled(true);
 			}//public void onClick(View v)
