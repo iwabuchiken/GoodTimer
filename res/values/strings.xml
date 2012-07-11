@@ -35,5 +35,7 @@
     
     <!-- /dlg_set_message.xml -->
     	<string name="main_menu_item_quick_start">クイックスタート</string>
+    	<string name="generic_cancel">キャンセル</string>
+    	<string name="dlg_quick_start_title">タイム・リスト</string>
     
 </resources>

@@ -18,10 +18,12 @@ public final class R {
         public static final int gold2=0x7f050007;
         public static final int green4=0x7f050004;
         public static final int purple4=0x7f050006;
+        public static final int red=0x7f050008;
         /**  Source=http://www.somacon.com/p142.php 
  main.xml 
          */
         public static final int white=0x7f050000;
+        public static final int yello=0x7f050009;
     }
     public static final class drawable {
         public static final int button_background_drawable=0x7f020000;
@@ -41,27 +43,30 @@ public final class R {
     }
     public static final class id {
         public static final int button1=0x7f080001;
-        public static final int buttonSettings=0x7f080007;
-        public static final int buttonStart=0x7f08000b;
-        public static final int buttonStop=0x7f08000c;
-        public static final int dlg_set_message_cancel=0x7f080004;
-        public static final int dlg_set_message_ok=0x7f080003;
-        public static final int editText1=0x7f080002;
-        public static final int ib_progress_decrease=0x7f080008;
-        public static final int ib_progress_increase=0x7f080009;
-        public static final int linearLayout1=0x7f080005;
-        public static final int linearLayout2=0x7f08000a;
-        public static final int menu_main_create_message=0x7f08000d;
-        public static final int menu_main_quick_start=0x7f08000e;
-        public static final int seekBar1=0x7f080006;
+        public static final int buttonSettings=0x7f080009;
+        public static final int buttonStart=0x7f08000d;
+        public static final int buttonStop=0x7f08000e;
+        public static final int dlg_quick_start_bt_cancel=0x7f080003;
+        public static final int dlg_quick_start_lv_list=0x7f080002;
+        public static final int dlg_set_message_cancel=0x7f080006;
+        public static final int dlg_set_message_ok=0x7f080005;
+        public static final int editText1=0x7f080004;
+        public static final int ib_progress_decrease=0x7f08000a;
+        public static final int ib_progress_increase=0x7f08000b;
+        public static final int linearLayout1=0x7f080007;
+        public static final int linearLayout2=0x7f08000c;
+        public static final int menu_main_create_message=0x7f08000f;
+        public static final int menu_main_quick_start=0x7f080010;
+        public static final int seekBar1=0x7f080008;
         public static final int textView1=0x7f080000;
     }
     public static final class layout {
         public static final int alarmdialog=0x7f030000;
-        public static final int dlg_set_message=0x7f030001;
-        public static final int main=0x7f030002;
-        public static final int main_original=0x7f030003;
-        public static final int preferences_screen=0x7f030004;
+        public static final int dlg_quick_start=0x7f030001;
+        public static final int dlg_set_message=0x7f030002;
+        public static final int main=0x7f030003;
+        public static final int main_original=0x7f030004;
+        public static final int preferences_screen=0x7f030005;
     }
     public static final class menu {
         public static final int menu_main=0x7f070000;
@@ -70,11 +75,13 @@ public final class R {
         public static final int app_name=0x7f060001;
         public static final int button_progress_backward=0x7f060007;
         public static final int button_progress_forward=0x7f060008;
+        public static final int dlg_quick_start_title=0x7f060013;
         public static final int dlg_set_message_cancel=0x7f060010;
         /**  /Options menu 
  dlg_set_message.xml 
          */
         public static final int dlg_set_message_ok=0x7f06000f;
+        public static final int generic_cancel=0x7f060012;
         public static final int hello=0x7f060000;
         /**  Preferences 
          */

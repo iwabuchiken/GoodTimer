@@ -34,8 +34,10 @@ public class DialogButtonClickListener implements OnClickListener{
 		 * 1. Get the tag
 			----------------------------*/
 		//
-		S_01_TimerActivity.DialogButtonTag tagName = 
-								(S_01_TimerActivity.DialogButtonTag) v.getTag();
+//		S_01_TimerActivity.DialogButtonTag tagName = 
+//								(S_01_TimerActivity.DialogButtonTag) v.getTag();
+		Methods.DialogButtonTags tagName = 
+				(Methods.DialogButtonTags) v.getTag();
 		
 		//
 		switch (tagName) {
@@ -50,14 +52,17 @@ public class DialogButtonClickListener implements OnClickListener{
 				//
 				Methods.setMessage(actv, dlg);
 				
-			break;// dlg_set_message_ok
+				break;// dlg_set_message_ok
 
 			case dlg_set_message_cancel:
 				//
 				dlg.dismiss();
 				
-			break;// dlg_set_message_cancel
+				break;// dlg_set_message_cancel
 
+			case dlg_quick_start_cancel:
+				dlg.dismiss();
+				break;
 		}//switch (tagName)
 		
 	}//public void onClick(View v)

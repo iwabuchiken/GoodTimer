@@ -33,20 +33,23 @@ public class S_01_TimerActivity extends Activity {
 	 * Class members
 	 *******************************************************************/
 	//
-	static Context mContext;
+	public static Context mContext;
 	
 	//
-	static SeekBar sb;
+	public static SeekBar sb;
 
 	// Buttons
-	static Button btnStart, btnStop;
+	public static Button btnStart, btnStop;
 
 //	static Button btnBack, btnForward;
-	ImageButton btnDecrease, btnIncrease;
+	public static ImageButton btnDecrease, btnIncrease;
 	
 	// Time
-	static int timeLeft = 0;
+	public static int timeLeft = 0;
 
+	// Time set
+	public static int timeSet = -1;
+	
 	// TextView tv
 	static TextView tv;
 
@@ -56,11 +59,11 @@ public class S_01_TimerActivity extends Activity {
 	//
 	public static String alarmMessage = null;
 	
-	public enum DialogButtonTag {
-		//
-		dlg_set_message_ok, dlg_set_message_cancel
-		
-	}//public enum DialogButtonTag
+//	public enum DialogButtonTag {
+//		//
+//		dlg_set_message_ok, dlg_set_message_cancel
+//		
+//	}//public enum DialogButtonTag
 	
     /** Called when the activity is first created. */
     @Override
@@ -618,7 +621,7 @@ public class S_01_TimerActivity extends Activity {
             
             case R.id.menu_main_quick_start:
             	//
-//            	Methods.dlg_quickStart(this);
+            	Methods.dlg_quickStart(this);
             	
             	break;//case 0
             
