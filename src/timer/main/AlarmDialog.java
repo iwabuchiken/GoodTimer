@@ -78,6 +78,8 @@ public class AlarmDialog extends Activity {
 				//
 				S_01_TimerActivity.sb.setEnabled(true);
 				
+				do_before_finish(AlarmDialog.this);
+				
 				// Finish
 				((Activity) mContext).finish();
 				
@@ -89,6 +91,32 @@ public class AlarmDialog extends Activity {
 		
 		
 	}//protected void onCreate(Bundle savedInstanceState)
+
+	protected void do_before_finish(Activity actv) {
+		/*----------------------------
+		 * Steps
+		 * 1. Set time to the text view
+		 * 2. Reset timeLeft
+		 * 3. Set enabled => "Start"
+			----------------------------*/
+		
+//		S_01_TimerActivity.showTime(S_01_TimerActivity.timeSet * 60 * 1000);
+		S_01_TimerActivity.showTime(S_01_TimerActivity.timeSet);
+		
+		S_01_TimerActivity.timeLeft = S_01_TimerActivity.timeSet;
+		
+		// Log
+		Log.d("AlarmDialog.java" + "["
+				+ Thread.currentThread().getStackTrace()[2].getLineNumber()
+				+ "]", "S_01_TimerActivity.timeSet: " + S_01_TimerActivity.timeSet);
+		
+		/*----------------------------
+		 * 3. Set enabled => "Start"
+			----------------------------*/
+		S_01_TimerActivity.btnStart.setEnabled(true);
+		
+		
+	}//protected void do_before_finish(Activity actv)
 
 	@Override
 	protected void onResume() {
