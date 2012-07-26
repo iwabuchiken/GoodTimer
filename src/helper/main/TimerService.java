@@ -261,11 +261,11 @@ public class TimerService extends Service {
 									}//if (counter == -1)
 									
 									
-								}//public void run()
+								}//public void run() // Runnable
 								
 							});//handler.post()
 							
-						}//public void run()
+						}//public void run() // TimerTask
 					}, 
 					0, 1000
 				);//timer.schedule()

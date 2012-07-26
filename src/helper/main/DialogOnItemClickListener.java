@@ -53,8 +53,16 @@ public class DialogOnItemClickListener implements OnItemClickListener {
 		/*----------------------------
 		 * 3-2. Set alarmMessage
 			----------------------------*/
-		S_01_TimerActivity.alarmMessage = actv.getString(R.string.message_timeup) + 
-														" : " + String.valueOf(time_len) + " " + "•ª";
+		if(S_01_TimerActivity.alarmMessage == null) {
+			
+			S_01_TimerActivity.alarmMessage = actv.getString(R.string.message_timeup) + 
+															" : " + String.valueOf(time_len) + " " + "•ª";
+			
+		} else {
+			
+			S_01_TimerActivity.alarmMessage += " : " + String.valueOf(time_len) + " " + "•ª";
+			
+		}//if(S_01_TimerActivity.alarmMessage == null)
 		
 		/*----------------------------
 		 * 4. Start timer
