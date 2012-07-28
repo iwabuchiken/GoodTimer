@@ -101,7 +101,8 @@ public class AlarmDialog extends Activity {
 			----------------------------*/
 		
 //		S_01_TimerActivity.showTime(S_01_TimerActivity.timeSet * 60 * 1000);
-		S_01_TimerActivity.showTime(S_01_TimerActivity.timeSet);
+//		S_01_TimerActivity.showTime(S_01_TimerActivity.timeSet);
+		S_01_TimerActivity.showTime(S_01_TimerActivity.timeSet * 60);
 		
 		S_01_TimerActivity.timeLeft = S_01_TimerActivity.timeSet;
 		

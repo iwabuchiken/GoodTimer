@@ -188,8 +188,8 @@ public class Methods {
 				 * 0. Set up
 					----------------------------*/
 				//
-				S_01_TimerActivity.timeLeft = time_len;
-//				S_01_TimerActivity.timeLeft = time_len * 60;
+//				S_01_TimerActivity.timeLeft = time_len;
+				S_01_TimerActivity.timeLeft = time_len * 60;
 		
 		
 				// TODO 自動生成されたメソッド・スタブ
