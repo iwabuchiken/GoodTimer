@@ -23,6 +23,8 @@ public class Methods {
 
 	//
 	static ArrayAdapter<String> adapter;
+
+	public static int vibLength = 35;
 	
 	//
 	public static enum DialogButtonTags {
@@ -33,7 +35,12 @@ public class Methods {
 		dlg_set_message_ok, dlg_set_message_cancel,
 		
 	}//public static enum DialogTags
-	
+
+	public static enum ButtonTags {
+		// timer_history_actv.xml
+		timer_history_actv_bt_back,
+		
+	}//public static enum ButtonTags
 	
 	public static void showDialog_setMessageText(Activity actv) {
 		/*----------------------------

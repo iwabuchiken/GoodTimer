@@ -39,6 +39,7 @@
                     
                 </activity>
         <activity android:name="Preferences"></activity>
+        <activity android:name=".TimerHistoryActivity"></activity>
         
     </application>
 

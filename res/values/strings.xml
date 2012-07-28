@@ -4,6 +4,10 @@
     <string name="hello">Hello World, S_01_TimerActivity!</string>
     <string name="app_name">S_01_Timer</string>
 
+    <!-- Generic -->
+    	<string name="generic_cancel">キャンセル</string>
+    	<string name="generic_back">戻る</string>
+    
     <string name="label_start">スタート</string>
     <string name="label_stop">ストップ</string>
     <string name="label_settings">アラーム設定</string>
@@ -25,7 +29,10 @@
     <!-- /Preferences -->
     
     <!-- Options menu -->
+    <!-- menu_main.xml -->
     	<string name="main_menu_item_set_message">メッセージ設定</string>
+    	<string name="main_menu_item_quick_start">クイックスタート</string>
+    	<string name="main_menu_item_timer_history">タイマー履歴</string>
     
     <!-- /Options menu -->
     
@@ -34,8 +41,8 @@
     	<string name="dlg_set_message_cancel">Cancel</string>
     
     <!-- /dlg_set_message.xml -->
-    	<string name="main_menu_item_quick_start">クイックスタート</string>
-    	<string name="generic_cancel">キャンセル</string>
+    	
+    	
     	<string name="dlg_quick_start_title">タイム・リスト</string>
     
 </resources>

@@ -15,6 +15,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Menu;
@@ -58,6 +59,8 @@ public class S_01_TimerActivity extends Activity {
 
 	//
 	public static String alarmMessage = null;
+
+	public static Vibrator vib;
 	
 //	public enum DialogButtonTag {
 //		//
@@ -78,6 +81,7 @@ public class S_01_TimerActivity extends Activity {
 		 * 4-3. GestureDetector
 		 * 
 		 * 5. Set listeners
+		 * 6. Vibrator
 			----------------------------*/
 		/*----------------------------
 		 * 1. Set up
@@ -155,6 +159,11 @@ public class S_01_TimerActivity extends Activity {
 		 * 5. Set listeners
 			----------------------------*/
 		setListeners();
+		
+		/*----------------------------
+		 * 6. Vibrator
+			----------------------------*/
+		vib = (Vibrator) this.getSystemService(this.VIBRATOR_SERVICE);
         
     }//public void onCreate(Bundle savedInstanceState)
 
@@ -604,6 +613,8 @@ public class S_01_TimerActivity extends Activity {
 		 * 1. 
 			----------------------------*/
 		
+		vib.vibrate(Methods.vibLength);
+		
         switch (item.getItemId()) {
 			/*----------------------------
 			 * Steps
@@ -613,18 +624,28 @@ public class S_01_TimerActivity extends Activity {
         	/*----------------------------
 			 * 1. case 0	=> 
 				----------------------------*/
-            case R.id.menu_main_create_message:
+            case R.id.menu_main_create_message://--------------------------------
             	//
             	Methods.showDialog_setMessageText(this);
             	
             	break;//case 0
             
-            case R.id.menu_main_quick_start:
+            case R.id.menu_main_quick_start://---------------------------------------
             	//
             	Methods.dlg_quickStart(this);
             	
             	break;//case 0
             
+            case R.id.menu_main_timer_history://---------------------------------------
+            	
+            	Intent i = new Intent();
+            	
+            	i.setClass(this, TimerHistoryActivity.class);
+            	
+            	startActivity(i);
+            	
+            	break;
+            	
         }//switch (item.getItemId())
         
 		return true;

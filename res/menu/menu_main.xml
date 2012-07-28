@@ -2,6 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item android:id="@+id/menu_main_create_message" android:title="@string/main_menu_item_set_message" android:icon="@android:drawable/ic_menu_edit"></item>
     <item android:id="@+id/menu_main_quick_start" android:title="@string/main_menu_item_quick_start" android:icon="@drawable/menu_quick_start_30x30"></item>
-    
+
+    <item 
+        android:id="@+id/menu_main_timer_history" 
+        android:title="@string/main_menu_item_timer_history" 
+        android:icon="@drawable/gt_main_opt_menu_timer_history_33x38">
+        
+    </item>
 
 </menu>
